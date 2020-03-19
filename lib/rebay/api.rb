@@ -6,7 +6,7 @@ module Rebay
   class Api
     # default site is EBAY_US, for other available sites see eBay documentation:
     # http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html
-    EBAY_US = 0
+    EBAY_US = "EBAY-US"
 
     class << self
       attr_accessor :app_id, :default_site_id, :sandbox
