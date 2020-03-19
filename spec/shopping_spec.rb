@@ -17,19 +17,19 @@ module Rebay
 
     context "siteid" do
       it "should default siteid" do
-        @shopper.should_receive(:get_json_response).with(/siteid=0&/)
+        @shopper.should_receive(:get_json_response).with(/EBAY-SOA-GLOBAL-ID=EBAY-US&/)
         @shopper.get_category_info(:CategoryID => '-1')
       end
 
       it "should default siteid" do
-        Rebay::Api.default_site_id = 100
-        @shopper.should_receive(:get_json_response).with(/siteid=100&/)
+        Rebay::Api.default_site_id = "EBAY-IT"
+        @shopper.should_receive(:get_json_response).with(/EBAY-SOA-GLOBAL-ID=EBAY-IT&/)
         @shopper.get_category_info(:CategoryID => '-1')
       end
 
       it "should default siteid" do
-        Rebay::Api.default_site_id = 100
-        @shopper.should_receive(:get_json_response).with(/siteid=99&/)
+        Rebay::Api.default_site_id = "EBAY-MOTOR"
+        @shopper.should_receive(:get_json_response).with(/EBAY-SOA-GLOBAL-ID=EBAY-MOTOR&/)
         @shopper.get_category_info(:CategoryID => '-1', :siteid => 99)
       end
     end
